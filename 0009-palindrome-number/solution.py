@@ -4,16 +4,14 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        # Negative numbers can never be palindrome
         if x < 0:
             return False
-
-        # Convert integer to string
-        s = str(x)
-
-        # Reverse the string using slicing
-        rev = s[::-1]
-
-        # Compare original and reversed
-        return s == rev
-
+        res = 0
+        temp = x
+        while x > 0:
+                last_digit = x % 10
+                x = x / 10
+                res = (res * 10) + last_digit
+        if res == temp:
+            return True
+        return False
